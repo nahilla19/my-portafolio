@@ -1,15 +1,15 @@
 /* Save as css/styles.css */
 :root {
-  color-scheme: light;
-  --bg: #faf7ef;
-  --surface: #ffffff;
-  --text: #191816;
-  --muted: #625b50;
-  --gold: #805c13;
-  --gold-hover: #61440c;
-  --border: #d8ceba;
-  --button-text: #ffffff;
-  --shadow: 0 16px 44px rgb(35 27 10 / 8%);
+  color-scheme: dark;
+  --bg: #10100f;
+  --surface: #1b1a17;
+  --text: #f7f2e8;
+  --muted: #c7bfaf;
+  --gold: #e4bd66;
+  --gold-hover: #f6d38b;
+  --border: #494132;
+  --button-text: #17130b;
+  --shadow: 0 16px 44px rgb(0 0 0 / 20%);
 }
 
 :root[data-theme="dark"],
@@ -237,6 +237,18 @@ a:hover {
   border-top: 1px solid var(--border);
 }
 
+.about {
+  background: linear-gradient(135deg, #12110f 0%, #18160f 54%, #14130f 100%);
+}
+
+.projects {
+  background: linear-gradient(125deg, #0f0f0e 0%, #17140f 52%, #11110f 100%);
+}
+
+.contact {
+  background: linear-gradient(135deg, #17150f 0%, #12110f 100%);
+}
+
 .eyebrow {
   margin: 0 0 1rem;
   color: var(--gold);
@@ -431,7 +443,7 @@ p {
   padding: clamp(1.5rem, 4vw, 2.5rem);
   border: 1px solid var(--border);
   border-radius: 1.5rem;
-  background: var(--surface);
+  background: linear-gradient(145deg, #1d1b16 0%, #151411 100%);
   box-shadow: var(--shadow);
 }
 
@@ -469,6 +481,7 @@ p {
 .site-footer {
   padding-block: 2rem;
   border-top: 1px solid var(--border);
+  background: #0c0c0b;
   color: var(--muted);
   font-size: 0.9rem;
 }
