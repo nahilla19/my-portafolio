@@ -120,8 +120,8 @@ a:hover {
   color: #f7f3e9;
 }
 
-.site-header .brand span {
-  color: #e5be70;
+.site-header .brand-wordmark {
+  color: #f7f3e9;
 }
 
 .site-header .site-nav a:hover {
@@ -146,6 +146,10 @@ a:hover {
 }
 
 .brand {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.72rem;
   color: var(--text);
   font-size: 1.5rem;
   font-weight: 750;
@@ -153,9 +157,36 @@ a:hover {
   text-decoration: none;
 }
 
-.brand span {
-  color: var(--gold);
+.brand-mark {
+  display: block;
+  flex: 0 0 auto;
+  width: 2.35rem;
+  height: 3.25rem;
 }
+
+.brand-wordmark {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.35rem;
+  color: #f7f3e9;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  line-height: 1;
+}
+
+.brand-wordmark::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: #8F7C50;
+  content: "";
+}
+
+
 
 .site-nav ul {
   display: flex;
@@ -453,6 +484,21 @@ p {
 }
 
 @media (max-width: 36rem) {
+  .brand {
+    gap: 0.5rem;
+  }
+
+  .brand-mark {
+    width: 1.9rem;
+    height: 2.55rem;
+  }
+
+  .brand-wordmark {
+    padding-bottom: 0.3rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+  }
+
   .header-inner {
     margin-block: 0.7rem;
     padding: 0.85rem 0.95rem;
