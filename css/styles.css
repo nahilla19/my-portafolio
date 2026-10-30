@@ -95,8 +95,10 @@ a:hover {
 }
 
 .site-header {
-  border-bottom: 1px solid var(--border);
-  background: var(--bg);
+  position: relative;
+  z-index: 10;
+  border-bottom: 0;
+  background: transparent;
 }
 
 .header-inner {
@@ -105,7 +107,42 @@ a:hover {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1.25rem;
-  padding-block: 1.5rem;
+  margin-block: 1rem;
+  padding: 0.95rem clamp(1rem, 2.5vw, 1.5rem);
+  border: 1px solid rgb(229 190 112 / 34%);
+  border-radius: 1.2rem;
+  background: linear-gradient(135deg, #171510 0%, #0d0d0c 72%);
+  box-shadow: 0 10px 32px rgb(0 0 0 / 20%), 0 0 24px rgb(216 171 76 / 8%), inset 0 1px 0 rgb(255 246 222 / 5%);
+}
+
+.site-header .brand,
+.site-header .site-nav a {
+  color: #f7f3e9;
+}
+
+.site-header .brand span {
+  color: #e5be70;
+}
+
+.site-header .site-nav a:hover {
+  color: #f0d59c;
+  text-decoration-color: #d8ad55;
+}
+
+.site-header .theme-toggle {
+  border-color: rgb(229 190 112 / 42%);
+  background: rgb(255 255 255 / 4%);
+  color: #f7f3e9;
+}
+
+.site-header .theme-toggle:not(:disabled):hover {
+  border-color: #d8ad55;
+  background: rgb(216 171 76 / 9%);
+  color: #f0d59c;
+}
+
+.site-header :focus-visible {
+  outline-color: #f0ca70;
 }
 
 .brand {
@@ -416,6 +453,12 @@ p {
 }
 
 @media (max-width: 36rem) {
+  .header-inner {
+    margin-block: 0.7rem;
+    padding: 0.85rem 0.95rem;
+    border-radius: 1rem;
+  }
+
   .container {
     width: calc(100% - 2rem);
   }
