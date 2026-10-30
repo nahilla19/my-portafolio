@@ -209,13 +209,26 @@ a:hover {
 }
 
 .theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
   min-height: 44px;
-  padding: 0.55rem 1rem;
+  padding: 0;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--surface);
   color: var(--text);
   cursor: pointer;
+}
+
+.theme-icon {
+  display: block;
+  width: 1.1rem;
+  height: 1.1rem;
+  color: #e5be70;
 }
 
 .theme-toggle:disabled {
