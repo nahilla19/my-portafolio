@@ -751,3 +751,74 @@ p {
     opacity: 0.12;
   }
 }
+
+
+/* Center the sole concept card and add a quiet gold code baseline. */
+.projects {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-bottom: clamp(5rem, 9vw, 7rem);
+  --project-code-color: rgb(228 189 102 / 24%);
+  --project-code-line: rgb(228 189 102 / 10%);
+  --project-code-wash: rgb(228 189 102 / 3%);
+}
+
+:root[data-theme="light"] .projects {
+  --project-code-color: rgb(119 91 28 / 18%);
+  --project-code-line: rgb(119 91 28 / 9%);
+  --project-code-wash: rgb(119 91 28 / 3%);
+}
+
+.projects > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.projects-grid {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+}
+
+.project-card {
+  width: min(100%, 28rem);
+}
+
+.projects::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--project-code-line);
+  background-image: linear-gradient(90deg, transparent, var(--project-code-wash), transparent), repeating-linear-gradient(90deg, transparent 0 3.5rem, var(--project-code-line) 3.55rem 3.6rem);
+  color: var(--project-code-color);
+  content: "01  const idea = { listen: true };  0x02  for (curiosity) learn();  // build with purpose";
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: clamp(0.58rem, 1vw, 0.72rem);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+
+@media (max-width: 36rem) {
+  .projects {
+    padding-bottom: 5rem;
+  }
+
+  .projects::after {
+    justify-content: flex-start;
+    padding-inline: 1rem;
+    font-size: 0.58rem;
+  }
+}
