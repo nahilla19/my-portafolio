@@ -958,3 +958,90 @@ body {
     opacity: 0.3;
   }
 }
+
+/* Give the hero a clear black-and-gold galaxy, while keeping its copy crisp. */
+.hero {
+  background-color: #080807;
+  background-image:
+    radial-gradient(ellipse 52% 92% at 84% 46%, rgb(209 157 49 / 24%) 0%, rgb(152 111 33 / 11%) 34%, transparent 74%),
+    radial-gradient(ellipse 36% 70% at 12% 78%, rgb(190 139 39 / 17%) 0%, transparent 74%),
+    linear-gradient(135deg, rgb(8 8 7 / 27%) 0%, rgb(12 11 9 / 34%) 54%, rgb(8 8 7 / 24%) 100%);
+}
+
+.hero::before {
+  background: radial-gradient(ellipse at center, rgb(216 171 76 / 31%) 0%, rgb(216 171 76 / 13%) 34%, transparent 72%);
+  filter: blur(22px);
+}
+
+.hero::after {
+  opacity: 0.16;
+}
+
+.starfield__layer--distant {
+  background-image:
+    radial-gradient(1.25px 1.25px at 18px 22px, rgb(255 231 177 / 98%) 50%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 67px 94px, rgb(228 189 102 / 98%) 50%, transparent 100%),
+    radial-gradient(1px 1px at 126px 43px, rgb(255 246 223 / 96%) 50%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 182px 158px, rgb(228 189 102 / 94%) 50%, transparent 100%),
+    radial-gradient(1.25px 1.25px at 233px 74px, rgb(255 231 177 / 94%) 50%, transparent 100%),
+    radial-gradient(1px 1px at 274px 211px, rgb(255 246 223 / 94%) 50%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 91px 225px, rgb(228 189 102 / 92%) 50%, transparent 100%),
+    radial-gradient(1px 1px at 219px 249px, rgb(255 231 177 / 92%) 50%, transparent 100%);
+  background-size: 307px 271px;
+  opacity: 0.9;
+}
+
+.starfield__layer--mid {
+  background-image:
+    radial-gradient(2px 2px at 24px 38px, rgb(255 229 168 / 98%) 45%, transparent 100%),
+    radial-gradient(1.75px 1.75px at 76px 113px, rgb(228 189 102 / 98%) 48%, transparent 100%),
+    radial-gradient(2px 2px at 138px 27px, rgb(255 246 223 / 96%) 45%, transparent 100%),
+    radial-gradient(1.75px 1.75px at 193px 162px, rgb(228 189 102 / 98%) 48%, transparent 100%),
+    radial-gradient(2px 2px at 218px 79px, rgb(255 229 168 / 96%) 45%, transparent 100%),
+    radial-gradient(1.75px 1.75px at 112px 197px, rgb(255 246 223 / 96%) 48%, transparent 100%),
+    radial-gradient(2px 2px at 42px 196px, rgb(228 189 102 / 96%) 45%, transparent 100%);
+  background-size: 251px 223px;
+  opacity: 0.82;
+}
+
+.starfield__layer--near {
+  background-image:
+    radial-gradient(4px 4px at 31px 42px, rgb(255 232 181 / 98%) 0 22%, rgb(228 189 102 / 64%) 42%, transparent 100%),
+    radial-gradient(3.5px 3.5px at 101px 119px, rgb(255 246 223 / 98%) 0 22%, rgb(228 189 102 / 58%) 42%, transparent 100%),
+    radial-gradient(4px 4px at 177px 55px, rgb(255 229 168 / 98%) 0 22%, rgb(228 189 102 / 64%) 42%, transparent 100%),
+    radial-gradient(3.5px 3.5px at 221px 166px, rgb(255 246 223 / 96%) 0 22%, rgb(228 189 102 / 58%) 42%, transparent 100%),
+    radial-gradient(4px 4px at 63px 208px, rgb(228 189 102 / 98%) 0 22%, rgb(228 189 102 / 62%) 42%, transparent 100%);
+  background-size: 263px 239px;
+  opacity: 0.76;
+}
+
+.starfield__glow {
+  background:
+    radial-gradient(ellipse at 18% 30%, rgb(206 162 71 / 25%) 0%, transparent 34%),
+    radial-gradient(ellipse at 83% 66%, rgb(206 162 71 / 21%) 0%, transparent 33%),
+    radial-gradient(ellipse at 55% 12%, rgb(255 222 150 / 10%) 0%, transparent 28%);
+  filter: blur(24px);
+  opacity: 0.72;
+}
+
+:root[data-theme="light"] .hero {
+  background-image:
+    radial-gradient(ellipse 52% 92% at 84% 46%, rgb(169 126 38 / 10%) 0%, rgb(152 111 33 / 5%) 34%, transparent 74%),
+    radial-gradient(ellipse 36% 70% at 12% 78%, rgb(190 139 39 / 7%) 0%, transparent 74%),
+    linear-gradient(135deg, rgb(251 247 239 / 91%) 0%, rgb(239 230 212 / 91%) 100%);
+}
+
+:root[data-theme="light"] .starfield__layer--distant { opacity: 0.24; }
+:root[data-theme="light"] .starfield__layer--mid { opacity: 0.18; }
+:root[data-theme="light"] .starfield__layer--near { opacity: 0.13; }
+:root[data-theme="light"] .starfield__glow { opacity: 0.24; }
+
+@media (prefers-reduced-motion: reduce) {
+  .starfield__layer {
+    will-change: auto;
+  }
+
+  .starfield__glow {
+    animation: none;
+  }
+}
