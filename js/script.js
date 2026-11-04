@@ -34,3 +34,43 @@
     applyTheme(root.dataset.theme === "dark" ? "light" : "dark");
   });
 })();
+
+(() => {
+  const starfield = document.querySelector(".starfield");
+  if (!starfield || typeof window.matchMedia !== "function") return;
+
+  const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const layers = Array.from(starfield.querySelectorAll("[data-parallax-speed]"));
+  let framePending = false;
+
+  function updateLayers() {
+    framePending = false;
+    if (motionPreference.matches) return;
+
+    const scrollY = Math.max(0, window.scrollY || window.pageYOffset || 0);
+    layers.forEach((layer) => {
+      const speed = Number.parseFloat(layer.dataset.parallaxSpeed) || 0;
+      const tileHeight = Number.parseFloat(layer.dataset.tileHeight) || 1;
+      const offset = -((scrollY * speed) % tileHeight);
+      layer.style.backgroundPositionY = `${offset.toFixed(2)}px`;
+    });
+  }
+
+  function scheduleLayerUpdate() {
+    if (motionPreference.matches || framePending) return;
+    framePending = true;
+    window.requestAnimationFrame(updateLayers);
+  }
+
+  window.addEventListener("scroll", scheduleLayerUpdate, { passive: true });
+  window.addEventListener("resize", scheduleLayerUpdate, { passive: true });
+  motionPreference.addEventListener("change", (event) => {
+    if (event.matches) {
+      layers.forEach((layer) => layer.style.removeProperty("background-position-y"));
+    } else {
+      scheduleLayerUpdate();
+    }
+  });
+
+  scheduleLayerUpdate();
+})();
