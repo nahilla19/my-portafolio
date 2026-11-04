@@ -1037,11 +1037,90 @@ body {
 :root[data-theme="light"] .starfield__glow { opacity: 0.24; }
 
 @media (prefers-reduced-motion: reduce) {
-  .starfield__layer {
+  .starfield__layer,
+  .hero-galaxy__layer {
     will-change: auto;
   }
 
   .starfield__glow {
     animation: none;
+  }
+}
+
+/* A dedicated hero galaxy keeps its brighter stars visible on the dark panel. */
+.hero-galaxy {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 48% 76% at 83% 46%, rgb(222 170 64 / 14%) 0%, transparent 73%),
+    radial-gradient(ellipse 31% 58% at 12% 76%, rgb(203 150 48 / 11%) 0%, transparent 74%);
+}
+
+.hero-galaxy__layer {
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat;
+  mix-blend-mode: screen;
+  will-change: background-position;
+}
+
+.hero-galaxy__layer--distant {
+  background-image:
+    radial-gradient(1.35px 1.35px at 18px 24px, rgb(255 231 177 / 98%) 50%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 69px 98px, rgb(228 189 102 / 98%) 50%, transparent 100%),
+    radial-gradient(1.1px 1.1px at 126px 40px, rgb(255 246 223 / 98%) 50%, transparent 100%),
+    radial-gradient(1.45px 1.45px at 185px 161px, rgb(228 189 102 / 98%) 50%, transparent 100%),
+    radial-gradient(1.35px 1.35px at 245px 71px, rgb(255 231 177 / 98%) 50%, transparent 100%),
+    radial-gradient(1.1px 1.1px at 278px 215px, rgb(255 246 223 / 98%) 50%, transparent 100%),
+    radial-gradient(1.45px 1.45px at 95px 234px, rgb(228 189 102 / 98%) 50%, transparent 100%),
+    radial-gradient(1.1px 1.1px at 219px 248px, rgb(255 231 177 / 98%) 50%, transparent 100%),
+    radial-gradient(1.25px 1.25px at 154px 116px, rgb(255 246 223 / 96%) 50%, transparent 100%),
+    radial-gradient(1.4px 1.4px at 34px 191px, rgb(228 189 102 / 98%) 50%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 263px 136px, rgb(255 231 177 / 96%) 50%, transparent 100%),
+    radial-gradient(1.35px 1.35px at 143px 208px, rgb(255 246 223 / 96%) 50%, transparent 100%);
+  background-size: 293px 277px;
+  opacity: 0.9;
+}
+
+.hero-galaxy__layer--mid {
+  background-image:
+    radial-gradient(2px 2px at 24px 31px, rgb(255 229 168 / 99%) 45%, transparent 100%),
+    radial-gradient(2.2px 2.2px at 76px 113px, rgb(228 189 102 / 99%) 48%, transparent 100%),
+    radial-gradient(2px 2px at 138px 27px, rgb(255 246 223 / 98%) 45%, transparent 100%),
+    radial-gradient(2.2px 2.2px at 193px 162px, rgb(228 189 102 / 99%) 48%, transparent 100%),
+    radial-gradient(2px 2px at 218px 79px, rgb(255 229 168 / 98%) 45%, transparent 100%),
+    radial-gradient(2.2px 2.2px at 112px 187px, rgb(255 246 223 / 98%) 48%, transparent 100%),
+    radial-gradient(2px 2px at 42px 191px, rgb(228 189 102 / 98%) 45%, transparent 100%),
+    radial-gradient(2.2px 2.2px at 165px 108px, rgb(255 229 168 / 98%) 48%, transparent 100%);
+  background-size: 229px 197px;
+  opacity: 0.86;
+}
+
+.hero-galaxy__layer--near {
+  background-image:
+    radial-gradient(5px 5px at 31px 34px, rgb(255 232 181 / 99%) 0 16%, rgb(228 189 102 / 72%) 38%, transparent 100%),
+    radial-gradient(4.5px 4.5px at 101px 118px, rgb(255 246 223 / 99%) 0 17%, rgb(228 189 102 / 68%) 40%, transparent 100%),
+    radial-gradient(5px 5px at 177px 53px, rgb(255 229 168 / 99%) 0 16%, rgb(228 189 102 / 72%) 38%, transparent 100%),
+    radial-gradient(4.5px 4.5px at 221px 151px, rgb(255 246 223 / 98%) 0 17%, rgb(228 189 102 / 68%) 40%, transparent 100%),
+    radial-gradient(5px 5px at 63px 154px, rgb(228 189 102 / 99%) 0 16%, rgb(228 189 102 / 70%) 38%, transparent 100%),
+    radial-gradient(4.5px 4.5px at 142px 80px, rgb(255 229 168 / 98%) 0 17%, rgb(228 189 102 / 68%) 40%, transparent 100%);
+  background-size: 263px 167px;
+  opacity: 0.8;
+}
+
+.hero > .container {
+  z-index: 2;
+}
+
+:root[data-theme="light"] .hero-galaxy {
+  opacity: 0.38;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-galaxy__layer {
+    will-change: auto;
   }
 }

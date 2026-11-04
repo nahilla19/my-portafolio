@@ -40,7 +40,9 @@
   if (!starfield || typeof window.matchMedia !== "function") return;
 
   const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const layers = Array.from(starfield.querySelectorAll("[data-parallax-speed]"));
+  const layers = Array.from(document.querySelectorAll(
+    ".starfield [data-parallax-speed], .hero-galaxy [data-parallax-speed]"
+  ));
   let framePending = false;
 
   function updateLayers() {
